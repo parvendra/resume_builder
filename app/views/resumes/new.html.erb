@@ -1,0 +1,22 @@
+<%= form_for(@resume) do |f| %>
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :age %><br />
+  <%= f.text_field :age %>
+</div>
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_area :address %>
+</div>
+<div class="field">
+  <%= f.label :format %><br />
+  <%= f.text_field :format %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
+<% end %>

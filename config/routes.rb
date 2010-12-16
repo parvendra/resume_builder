@@ -1,4 +1,8 @@
 ResumeBuilder::Application.routes.draw do
+  
+  resources :resumes, :only => [:new, :create]
+  root :to => 'pages#home'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
