@@ -1,4 +1,4 @@
-require 'resume.rb'
+require 'resume_creater.rb'
 class TextSaver < ResumeCreater
 
   def initialize(name, age, address)
@@ -7,8 +7,8 @@ class TextSaver < ResumeCreater
   
   def save_to_file
     file = ""
-    File.open("#{@name}.txt", "w") do |file|
-      file.print(IO.read(@name))
+    File.open("#{RAILS_ROOT}/public/files/#{@name.downcase.split.join("_")}.text", "w") do |file|
+      file.print(IO.read("#{RAILS_ROOT}/public/files/#{@name.downcase.split.join("_")}"))
     end
     return file
   end

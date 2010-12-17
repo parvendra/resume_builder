@@ -10,6 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20101216113646) do
+
+  create_table "resumes", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "age"
+    t.string   "address"
+    t.string   "format"
+  end
 
 end

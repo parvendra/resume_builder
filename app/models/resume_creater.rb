@@ -1,12 +1,12 @@
 class ResumeCreater
   def initialize(name, age, address)
     if(name !~ /^\w.*/ || age !~ /^\d+$/ || address !~ /\w.*/)
-      raise Exception
+      raise Exception "invalid arguments"
     end
     @name = name
     @age = age
     @address = address
-    File.open("#{@name}", "a") do |file|
+    File.open("#{RAILS_ROOT}/public/files/#{@name.downcase.split.join('_')}", "a") do |file|
       file.print(self)
     end
   end
@@ -22,8 +22,8 @@ class ResumeCreater
       return writter
       rescue LoadError
       raise
-      rescue Exception
-      raise
+      rescue Exception => e
+      raise e.message
     end
   end
 end
