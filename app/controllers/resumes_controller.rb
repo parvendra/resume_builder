@@ -18,7 +18,17 @@ class ResumesController < ApplicationController
   def show
     @resume = Resume.find_by_id(params[:id])
     @title = @resume.name
-    end
+  end
+
+  def download
+    @resume = Resume.find_by_id(params[:id])
+  #  redirect_to root_url+"files/#{@resume.name.downcase.split.join("_")}.#{@resume.format}",
+  #  :content_type => "#{@resume.format}"
+    
+    render :file => Rails.root.to_s+"/public/files/#{@resume.name.downcase.split.join("_")}.#{@resume.format}",
+    :layout => false, :content_type => "application/#{@resume.format}"
+    
+  end
   
 end
   

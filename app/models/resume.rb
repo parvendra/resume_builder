@@ -12,10 +12,7 @@ class Resume < ActiveRecord::Base
   :format => { :with =>  name_regx}
 
   validates :age, :presence => true,
-  :format => { :with => age_regx }
-
-  validates_numericality_of :age, :only_integer => true,
-  :message => "can only be Integer."
+  :numericality => true
   
   validates :address, :presence => true,
   :format => { :with => name_regx},
@@ -33,7 +30,7 @@ class Resume < ActiveRecord::Base
       writter.save_to_file
       return true
     rescue LoadError
-      self.errors[:format] = "No suitable plugin found!"
+      self.errors[:format] = I18n.t :format_invalid, :scope => [:activerecord, :errors, :messages]
       return false
     rescue Exception
       self.errors[:format] = "some error happened : #{$!}"

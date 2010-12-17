@@ -3,3 +3,20 @@
 
 en:
   hello: "Hello world"
+  
+  activerecord:
+    errors:
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        invalid: "is not in proper format"
+        empty: "should not be empty"
+        blank: "should not be blank"
+        too_long: "is too long (maximum is %{count} characters)"
+        too_short: "is too short (minimum is %{count} characters)"
+        wrong_length: "is the wrong length (should be %{count} characters)"
+        not_a_number: "should be a number"
+        not_an_integer: "should be an integer"
+        less_than: "must be less than %{count}"
+        record_invalid: "Validation failed: %{errors}"
+        format_invalid: "is not supported! Try another format. eg- pdf, text."

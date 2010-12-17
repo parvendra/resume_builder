@@ -2,6 +2,7 @@
 <div>
 Download Your Resume :  <%= link_to(
                             "#{@resume.name}.#{@resume.format}",
-                            root_url+"files/#{@resume.name.downcase.split.join("_")}.#{@resume.format}", :target => "_blank") %>
+                            download_resume_path(@user), 
+                            :target => "_blank") %>
 </div>
 
